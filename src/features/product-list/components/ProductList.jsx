@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { increment, incrementAsync, selectCount } from "./productListSlice";
+import { increment, incrementAsync, selectCount } from "../productListSlice";
 
 import { useState } from "react";
 import {
@@ -23,6 +23,7 @@ import {
   Squares2X2Icon,
 } from "@heroicons/react/20/solid";
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid'
+import { Link } from "react-router-dom";
 
 const items = [
   { id: 1, title: 'Back End Developer', department: 'Engineering', type: 'Full-time', location: 'Remote' },
@@ -417,6 +418,7 @@ export default function ProductList() {
 
                         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                           {products.map((product) => (
+                            <Link to='/product-detail'>
                             <div key={product.id} className="group relative">
                               <img
                                 alt={product.imageAlt}
@@ -443,6 +445,7 @@ export default function ProductList() {
                                 </p>
                               </div>
                             </div>
+                            </Link>
                           ))}
                         </div>
                       </div>
